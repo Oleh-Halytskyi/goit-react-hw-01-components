@@ -30,7 +30,7 @@ export const App = () => {
         />
       </Box>
       <Statistics data={data} />
-      <FriendList friends={friends} />;
+      <FriendList friends={friends} />
     </Box>
   );
 };
