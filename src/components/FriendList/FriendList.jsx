@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { ListItem, Name, Avatar, Status } from './FriendList.styled';
+import { FriendListItem } from './FriendListItem';
 import { Box } from '../Box';
 
 export const FriendList = ({ friends }) => {
@@ -7,11 +7,12 @@ export const FriendList = ({ friends }) => {
     <Box as="section" mb="20px">
       <Box as="ul" width="240px">
         {friends.map(({ id, name, avatar, isOnline }) => (
-          <ListItem key={id}>
-            <Status selected={isOnline}></Status>
-            <Avatar src={avatar} alt="User avatar" width="48" />
-            <Name>{name}</Name>
-          </ListItem>
+          <FriendListItem
+            key={id}
+            name={name}
+            avatar={avatar}
+            isOnline={isOnline}
+          />
         ))}
       </Box>
     </Box>
@@ -22,9 +23,6 @@ FriendList.propTypes = {
   friends: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      avatar: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      isOnline: PropTypes.bool.isRequired,
-    })
-  ),
+    }).isRequired
+  ).isRequired,
 };

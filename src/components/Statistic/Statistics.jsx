@@ -10,10 +10,10 @@ import {
   ItemValue,
 } from './Statistics.styled';
 
-export const Statistics = ({ data }) => {
+export const Statistics = ({ data, title }) => {
   return (
     <Box as="section" mb="20px">
-      <Title>{'Upload stats'.toUpperCase()}</Title>
+      {title.length > 0 && <Title>{title}</Title>}
       <StatList>
         {data.map(({ id, label, percentage }) => (
           <ItemStatistic
@@ -28,6 +28,7 @@ export const Statistics = ({ data }) => {
     </Box>
   );
 };
+export const title = 'Upload stats';
 
 Statistics.propTypes = {
   data: PropTypes.arrayOf(
@@ -35,6 +36,6 @@ Statistics.propTypes = {
       id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,
       percentage: PropTypes.number.isRequired,
-    })
-  ),
+    }).isRequired
+  ).isRequired,
 };

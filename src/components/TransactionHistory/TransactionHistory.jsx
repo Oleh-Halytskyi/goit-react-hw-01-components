@@ -43,6 +43,6 @@ TransactionHistory.propTypes = {
       type: PropTypes.string.isRequired,
       currency: PropTypes.string.isRequired,
       amount: PropTypes.number.isRequired,
-    })
+    }).isRequired
   ),
 };
