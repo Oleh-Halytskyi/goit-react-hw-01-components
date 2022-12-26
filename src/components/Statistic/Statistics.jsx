@@ -13,7 +13,7 @@ import {
 export const Statistics = ({ data, title }) => {
   return (
     <Box as="section" mb="20px">
-      {title.length > 0 && <Title>{title}</Title>}
+      {title > 0 && <Title>{title}</Title>}
       <StatList>
         {data.map(({ id, label, percentage }) => (
           <ItemStatistic
@@ -31,6 +31,7 @@ export const Statistics = ({ data, title }) => {
 export const title = 'Upload stats';
 
 Statistics.propTypes = {
+  title: PropTypes.string,
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
